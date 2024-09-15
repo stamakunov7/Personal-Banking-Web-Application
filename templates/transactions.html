@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Transaction History</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/transactions">Transactions</a></li>
+            <li><a href="/accounts">Accounts</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Account Number</th>
+                <th>Amount</th>
+                <th>Transaction Type</th>
+            </tr>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction['id'] }}</td>
+                <td>{{ transaction['account_number'] }}</td>
+                <td>{{ transaction['amount'] }}</td>
+                <td>{{ transaction['transaction_type'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
